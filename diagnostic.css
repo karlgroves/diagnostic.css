@@ -42,3 +42,14 @@ fieldset > legend:first-child {
 	outline: 3px solid green !important;
 }
 
+/* If used, dir attribute only accepts 2 possible values */
+[dir]:not([dir="rtl"]):not([dir="ltr"]) {
+	background-color: hotpink !important;
+}
+[dir="rtl"]:before,
+[dir="ltr"]:before {
+	content: "dir: " attr(dir);
+	display: block;
+	color: darkgreen !important;
+	background-color: lightyellow !important;
+}
