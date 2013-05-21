@@ -31,3 +31,14 @@ input[type="button"], big, tt {
 
 /* Images without alt attribute */
 img:not([alt]) {border: 5px solid red;}
+
+/* Legends */
+fieldset > :not(legend):first-child,	/* no other element than a legend can be first child of a fieldset element */
+fieldset > legend:not(:first-child) {	/* and a legend can't be anyrhing else than first child of a fieldset element */
+	outline: 5px dashed red !important;
+}
+/* so this is the only correct case: */
+fieldset > legend:first-child {
+	outline: 3px solid green !important;
+}
+
