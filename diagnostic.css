@@ -32,7 +32,10 @@ input[type="button"], big, tt {
 /* Images without alt attribute */
 img:not([alt]) {border: 5px solid red;}
 
-/* Legends */
+
+/*
+	Legends
+*/
 fieldset > :not(legend):first-child,	/* no other element than a legend can be first child of a fieldset element */
 fieldset > legend:not(:first-child) {	/* and a legend can't be anyrhing else than first child of a fieldset element */
 	outline: 5px dashed red !important;
@@ -42,6 +45,10 @@ fieldset > legend:first-child {
 	outline: 3px solid green !important;
 }
 
+
+/*
+	dir attribute
+*/
 /* If used, dir attribute only accepts 2 possible values */
 [dir]:not([dir="rtl"]):not([dir="ltr"]) {
 	background-color: hotpink !important;
@@ -52,4 +59,62 @@ fieldset > legend:first-child {
 	display: block;
 	color: darkgreen !important;
 	background-color: lightyellow !important;
+}
+
+
+/*
+	title element: not empty, unique and in head
+*/
+head, title {
+	display: block;
+}
+title:before {
+	content: 'TITLE';
+	margin: 0 0.4em;
+	padding: 0 0.4em;
+	color: black;
+	background-color: #D0D0D0;
+	border-radius: 3px;
+}
+head > title {
+	margin: 0;
+	padding: 0.2em 0;
+	border-bottom: 1px solid #CCC;
+	color: #444;
+	background-color: white;
+}
+/* empty? */
+title:empty:after {
+	content: "ERROR: title element is empty and it shouldn't";
+	color: #C22;
+	background-color: white;
+}
+title:empty:before,
+title ~ title:before { /* not unique? */
+	color: white;
+	background-color: #C22;
+}
+title ~ title:after {
+	content: ' (ERROR: why more than one title element?)';
+}
+title ~ title {
+	color: #C22;
+	background-color: white;
+}
+
+
+/*
+	Meta refresh?
+	@source CSS selector from Opquast Checklist Accessibility First step https://checklists.opquast.com/en/accessibilityfirststep/
+	@reference Technique for WCAG 2.0 F40 - http://www.w3.org/TR/WCAG-TECHS/F40.html
+*/
+meta[http-equiv=refresh]:before {
+	content: 'meta refresh detected';
+}
+meta[http-equiv=refresh] {
+	display: block;
+	padding: 0.4em;
+	font-weight: bold;
+	color: white;
+	background-color: darkred;
 }
