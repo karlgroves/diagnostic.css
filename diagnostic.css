@@ -106,7 +106,7 @@ title ~ title {
 /*
 	Meta refresh?
 	@source CSS selector from Opquast Checklist Accessibility First step https://checklists.opquast.com/en/accessibilityfirststep/
-	@reference Technique for WCAG 2.0 F40 - http://www.w3.org/TR/WCAG-TECHS/F40.html
+	@reference Technique for WCAG 2.0 F40: Failure (...) due to using meta redirect with a time limit - http://www.w3.org/TR/WCAG-TECHS/F40.html
 */
 meta[http-equiv=refresh]:before {
 	content: 'meta refresh detected';
@@ -118,3 +118,29 @@ meta[http-equiv=refresh] {
 	color: white;
 	background-color: darkred;
 }
+
+
+/*
+	Lang attribute on html element
+	@reference Technique for WCAG 2.0 H57: Using language attributes on the html element  - http://www.w3.org/TR/WCAG-TECHS/F40.html
+*/
+html[lang] {
+	display: block;
+	margin-top: 0.4em;
+}
+html:not([lang]):before {
+	content: 'no lang attribute detected';
+	margin: 0.4em;
+	padding: 0 0.4em;
+	color: white;
+	background-color: darkred;
+	border-radius: 3px;
+}
+
+html[lang]:before {
+	content: 'Default language of the page: ' attr(lang);
+	margin: 0.4em;
+	color: #444;
+	background-color: white;
+}
+
