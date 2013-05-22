@@ -37,12 +37,27 @@ img:not([alt]) {border: 5px solid red;}
 	Legends
 */
 fieldset > :not(legend):first-child,	/* no other element than a legend can be first child of a fieldset element */
-fieldset > legend:not(:first-child) {	/* and a legend can't be anyrhing else than first child of a fieldset element */
+fieldset > legend:not(:first-child) {	/* and a legend can't be anything else than first child of a fieldset element */
 	outline: 5px dashed red !important;
 }
 /* so this is the only correct case: */
 fieldset > legend:first-child {
 	outline: 3px solid green !important;
+}
+
+
+/*
+	Input[type="image"] and their alt attribute
+	Note: adding :before or :after on this type of element won't work as expected. Maybe background-image encoded in base64?
+	@reference Technique for WCAG 2.0 H36: Using alt attributes on images used as submit buttons - http://www.w3.org/TR/WCAG-TECHS/H36.html
+	@reference Technique for WCAG 2.0 F65: Failure (...) due to omitting the alt attribute on (...) input elements of type "image" - http://www.w3.org/TR/WCAG-TECHS/F65.html
+*/
+input[type="image"][alt=""],
+input[type="image"]:not([alt]) {
+	display: block;
+	background-color: red !important;
+	width: 200px !important;
+	height: 3em !important;
 }
 
 
