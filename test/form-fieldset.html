@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Test document for forms - diagnostic.css</title>
+	<link rel="stylesheet" href="../diagnostic.css">
+	<style type="text/css">
+h1, h2 {
+	color: darkblue;
+}
+.right {
+	float: right;
+}
+.w300p {
+	width: 300px;
+}
+	</style>
+</head>
+<body>
+	<h1>Forms: fieldset</h1>
+	
+	<h2>Valid example</h2>
+	<form class="w300p">
+		<h3>Who are you?</h3>
+		<fieldset>
+			<!-- Legend is the first child of this fieldset (except for this comment node) -->
+			<legend>Birthday date</legend>
+			<p>
+				<label for="valid-dd">
+					<span>Day</span>
+					<select name="valid-sth1" id="valid-dd">
+						<option value="">Day</option>
+						<option value="d1">1</option>
+						<option value="d2">2</option>
+						<option value="d3">3</option>
+						<option value="d4">4</option>
+						<option value="d5">5</option>
+						<option value="d6">6</option>
+						<option value="d7">7</option>
+						<option value="d8">8</option>
+						<option value="d9">9</option>
+						<option value="d10">10</option>
+						<option value="d11">11</option>
+						<option value="d12">12</option>
+						<option value="d13">13</option>
+						<option value="d14">14</option>
+						<option value="d15">15</option>
+						<option value="d16">16</option>
+						<option value="d17">17</option>
+						<option value="d18">18</option>
+						<option value="d19">19</option>
+						<option value="d20">20</option>
+						<option value="d21">21</option>
+						<option value="d22">22</option>
+						<option value="d23">23</option>
+						<option value="d24">24</option>
+						<option value="d25">25</option>
+						<option value="d26">26</option>
+						<option value="d27">27</option>
+						<option value="d28">28</option>
+						<option value="d29">29</option>
+						<option value="d30">30</option>
+						<option value="d31">31</option>
+					</select>
+				</label>
+			</p>
+			<p>
+				<label for="valid-mm">Month</label>
+				<select name="valid-sth2" id="valid-mm">
+					<option value="">Month</option>
+					<option value="m1">1 - January</option>
+					<option value="m2">2 - February</option>
+					<option value="m3">3 - March</option>
+					<option value="m4">4 - April</option>
+					<option value="m5">5 - May</option>
+					<option value="m6">6 - June</option>
+					<option value="m7">7 - July</option>
+					<option value="m8">8 - August</option>
+					<option value="m9">9 - September</option>
+					<option value="m10">10 - October</option>
+					<option value="m11">11 - November</option>
+					<option value="m12">12 - December</option>
+				</select>
+			</p>
+			<p>
+				<select title="Year" name="valid-sth3" id="valid-yyyy">
+					<option value="">Year</option>
+					<option value="y1">1900</option>
+					<option value="y2">1901</option>
+					<option value="y2">1902</option>
+					<option value="y3">1903</option>
+					<option value="y4">1904</option>
+					<option value="y5">1905</option>
+					<option value="y6">1906</option>
+					<option value="y7">1907</option>
+					<option value="y8">1908</option>
+					<option value="y9">1909</option>
+					<option value="y10">1910</option>
+					<option value="y11">1911</option>
+					<option value="y12">1912</option>
+					<option value="y13">1913</option>
+					<option value="y14">1914</option>
+					<option value="y15">1915</option>
+					<option value="y16">1916</option>
+					<option value="y17">1917</option>
+					<option value="y18">1918</option>
+					<option value="y19">1919</option>
+					<option value="y20">1920</option>
+					<option value="yetc">(blah)</option>
+				</select>
+			</p>
+			<p class="right">
+				<input type="submit" value="Validate">
+			</p>
+		</fieldset>
+	</form>
+
+	<h2>Bad example</h2>
+	<form class="w300p">
+		<fieldset>
+			<!-- Legend should be the first child of this fieldset but instead there's a heading -->
+			<h3>Who are you?</h3>
+			<legend>Birthday date</legend>
+			<p>
+				<label for="nope-dd">
+					<span>Day</span>
+					<select name="nope-sth1" id="nope-dd">
+						<option value="">Day</option>
+						<option value="d1">1</option>
+						<option value="d2">2</option>
+						<option value="d3">3</option>
+						<option value="d4">4</option>
+						<option value="d5">5</option>
+						<option value="d6">6</option>
+						<option value="d7">7</option>
+						<option value="d8">8</option>
+						<option value="d9">9</option>
+						<option value="d10">10</option>
+						<option value="d11">11</option>
+						<option value="d12">12</option>
+						<option value="d13">13</option>
+						<option value="d14">14</option>
+						<option value="d15">15</option>
+						<option value="d16">16</option>
+						<option value="d17">17</option>
+						<option value="d18">18</option>
+						<option value="d19">19</option>
+						<option value="d20">20</option>
+						<option value="d21">21</option>
+						<option value="d22">22</option>
+						<option value="d23">23</option>
+						<option value="d24">24</option>
+						<option value="d25">25</option>
+						<option value="d26">26</option>
+						<option value="d27">27</option>
+						<option value="d28">28</option>
+						<option value="d29">29</option>
+						<option value="d30">30</option>
+						<option value="d31">31</option>
+					</select>
+				</label>
+			</p>
+			<p>
+				<label for="nope-mm">Month</label>
+				<select name="nope-sth2" id="nope-mm">
+					<option value="">Month</option>
+					<option value="m1">1 - January</option>
+					<option value="m2">2 - February</option>
+					<option value="m3">3 - March</option>
+					<option value="m4">4 - April</option>
+					<option value="m5">5 - May</option>
+					<option value="m6">6 - June</option>
+					<option value="m7">7 - July</option>
+					<option value="m8">8 - August</option>
+					<option value="m9">9 - September</option>
+					<option value="m10">10 - October</option>
+					<option value="m11">11 - November</option>
+					<option value="m12">12 - December</option>
+				</select>
+			</p>
+			<p>
+				<select title="Year" name="nope-sth3" id="nope-yyyy">
+					<option value="">Year</option>
+					<option value="y1">1900</option>
+					<option value="y2">1901</option>
+					<option value="y2">1902</option>
+					<option value="y3">1903</option>
+					<option value="y4">1904</option>
+					<option value="y5">1905</option>
+					<option value="y6">1906</option>
+					<option value="y7">1907</option>
+					<option value="y8">1908</option>
+					<option value="y9">1909</option>
+					<option value="y10">1910</option>
+					<option value="y11">1911</option>
+					<option value="y12">1912</option>
+					<option value="y13">1913</option>
+					<option value="y14">1914</option>
+					<option value="y15">1915</option>
+					<option value="y16">1916</option>
+					<option value="y17">1917</option>
+					<option value="y18">1918</option>
+					<option value="y19">1919</option>
+					<option value="y20">1920</option>
+					<option value="yetc">(blah)</option>
+				</select>
+			</p>
+			<p class="right">
+				<input type="submit" value="Validate">
+			</p>
+		</fieldset>
+	</form>
+</body>
+</html>

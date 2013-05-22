@@ -31,3 +31,131 @@ input[type="button"], big, tt {
 
 /* Images without alt attribute */
 img:not([alt]) {border: 5px solid red;}
+
+
+/*
+	Legends
+*/
+fieldset > :not(legend):first-child,	/* no other element than a legend can be first child of a fieldset element */
+fieldset > legend:not(:first-child) {	/* and a legend can't be anything else than first child of a fieldset element */
+	outline: 5px dashed red !important;
+}
+/* so this is the only correct case: */
+fieldset > legend:first-child {
+	outline: 3px solid green !important;
+}
+
+
+/*
+	Input[type="image"] and their alt attribute
+	Note: adding :before or :after on this type of element won't work as expected. Maybe background-image encoded in base64?
+	@reference Technique for WCAG 2.0 H36: Using alt attributes on images used as submit buttons - http://www.w3.org/TR/WCAG-TECHS/H36.html
+	@reference Technique for WCAG 2.0 F65: Failure (...) due to omitting the alt attribute on (...) input elements of type "image" - http://www.w3.org/TR/WCAG-TECHS/F65.html
+*/
+input[type="image"][alt=""],
+input[type="image"]:not([alt]) {
+	display: block;
+	background-color: red !important;
+	width: 200px !important;
+	height: 3em !important;
+}
+
+
+/*
+	dir attribute
+*/
+/* If used, dir attribute only accepts 2 possible values */
+[dir]:not([dir="rtl"]):not([dir="ltr"]) {
+	background-color: hotpink !important;
+}
+[dir="rtl"]:before,
+[dir="ltr"]:before {
+	content: "dir: " attr(dir);
+	display: block;
+	color: darkgreen !important;
+	background-color: lightyellow !important;
+}
+
+
+/*
+	title element: not empty, unique and in head
+*/
+head, title {
+	display: block;
+}
+title:before {
+	content: 'TITLE';
+	margin: 0 0.4em;
+	padding: 0 0.4em;
+	color: black;
+	background-color: #D0D0D0;
+	border-radius: 3px;
+}
+head > title {
+	margin: 0;
+	padding: 0.2em 0;
+	border-bottom: 1px solid #CCC;
+	color: #444;
+	background-color: white;
+}
+/* empty? */
+title:empty:after {
+	content: "ERROR: title element is empty and it shouldn't";
+	color: #C22;
+	background-color: white;
+}
+title:empty:before,
+title ~ title:before { /* not unique? */
+	color: white;
+	background-color: #C22;
+}
+title ~ title:after {
+	content: ' (ERROR: why more than one title element?)';
+}
+title ~ title {
+	color: #C22;
+	background-color: white;
+}
+
+
+/*
+	Meta refresh?
+	@source CSS selector from Opquast Checklist Accessibility First step https://checklists.opquast.com/en/accessibilityfirststep/
+	@reference Technique for WCAG 2.0 F40: Failure (...) due to using meta redirect with a time limit - http://www.w3.org/TR/WCAG-TECHS/F40.html
+*/
+meta[http-equiv=refresh]:before {
+	content: 'meta refresh detected';
+}
+meta[http-equiv=refresh] {
+	display: block;
+	padding: 0.4em;
+	font-weight: bold;
+	color: white;
+	background-color: darkred;
+}
+
+
+/*
+	Lang attribute on html element
+	@reference Technique for WCAG 2.0 H57: Using language attributes on the html element  - http://www.w3.org/TR/WCAG-TECHS/F40.html
+*/
+html[lang] {
+	display: block;
+	margin-top: 0.4em;
+}
+html:not([lang]):before {
+	content: 'no lang attribute detected';
+	margin: 0.4em;
+	padding: 0 0.4em;
+	color: white;
+	background-color: darkred;
+	border-radius: 3px;
+}
+
+html[lang]:before {
+	content: 'Default language of the page: ' attr(lang);
+	margin: 0.4em;
+	color: #444;
+	background-color: white;
+}
+
