@@ -1,37 +1,66 @@
-/* Empty Elements */
-div:empty, span:empty, li:empty, p:empty, td:empty, th:empty {
-    padding: 20px;
-    border: 5px dotted yellow !important;
-}
 
 /* Empty Attributes */
-*[title=""], *[class=""], *[id=""], a[href=""], a[href="#"], table[summary=""]  {
+*[title=""], *[class=""], *[id=""], table[summary=""]  {
     border: 5px solid yellow !important;
 }
 
-/* Deprecated Elements */
+/* Deprecated Elements - cannot be overridden by user styles */
 applet, basefont, center, dir, font, isindex, menu, s, strike, u {
     border: 5px dotted red !important;
 }
 
-/* Deprecated Attributes */
+/* Deprecated Attributes - cannot be overridden by user styles */
 *[background], *[bgcolor], *[clear], *[color], *[compact], *[noshade], *[nowrap], *[size], *[start], *[bottommargin], *[leftmargin], *[rightmargin], *[topmargin], *[marginheight], *[marginwidth], *[alink], *[link], *[text], *[vlink], *[align], *[valign], *[hspace], *[vspace], *[height], *[width], ul[type], ol[type], li[type] {
     border: 5px solid red !important;
 }
 
-/* Proposed Deprecated Elements */
-input[type="button"], big, tt {
-    border: 5px dotted #33FF00 !important;
+/* Inline frames without title attribute */
+iframe:not([title]){
+    border: 5px solid red !important;
 }
 
-/* Proposed Deprecated Attributes */
-*[border], a[target], table[cellpadding], table[cellspacing] {
-    border: 5px solid #33FF00 !important;
+
+/**
+ *     Image-related checks
+ */
+
+/* server-side image map. Yes these are sometimes still seen, if rarely */
+img[ismap]{
+    border: 5px solid red;  
 }
 
 /* Images without alt attribute */
-img:not([alt]) {border: 5px solid red;}
+img:not([alt]) {
+    border: 5px solid red;
+}
 
+/* something that has a role of image but no alternative */
+div[role="img"]:not([aria-label]){
+   border: 5px solid red; 
+}
+
+/* images without a source */
+img:not([src]),
+img[src=""],
+img[src="#"]{
+    border: 5px solid red !important;
+}
+
+/**
+ *     Link-related checks
+ */
+
+/* Bad links, possibly relying on javascript to do something */
+a[href=""], a[href="#"], a:not([href]), a[href*=javascript\:], a[onclick]{
+    border: 5px solid red !important;
+}
+
+
+
+
+/** 
+ *     form-related checks
+ */
 
 /*
 	Legends
@@ -59,6 +88,13 @@ input[type="image"]:not([alt]) {
 	width: 200px !important;
 	height: 3em !important;
 }
+
+
+/* Missing 'for' attribute on a label */
+label:not([for]){
+    border: 5px solid red !important;
+}
+
 
 
 /*
@@ -168,7 +204,30 @@ html[lang]:before {
 }
 
 
-/* server-side image map. Yes these are sometimes still seen, if rarely */
-img[ismap]{
-    border: 5px solid red;  
+/**
+ *     TABLE RELATED CHECKS
+ */
+
+/* Empty Header Cells */
+th:empty {
+    padding: 20px;
+    border: 5px solid yellow !important;
+}
+
+/* only one TR in the table. Is that a layout table? */ 
+table > tr:only-child, 
+table > tbody > tr:only-child {
+  border: 5px solid red;
+}
+
+/* Deprecated attributes on table */
+table[align],
+table[bgcolor],
+table[border],
+table[cellpadding],
+table[cellspacing],
+table[width],
+td[width],
+td[valign] {
+    border: 5px solid red;
 }
