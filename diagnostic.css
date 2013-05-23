@@ -25,7 +25,7 @@ input[type="button"], big, tt {
 }
 
 /* Proposed Deprecated Attributes */
-*[border], a[target], table[cellpadding], table[cellspacing], *[name] {
+*[border], a[target], table[cellpadding], table[cellspacing] {
     border: 5px solid #33FF00 !important;
 }
 
@@ -159,3 +159,16 @@ html[lang]:before {
 	background-color: white;
 }
 
+
+
+/* Accesskey is a bad idea. 
+ * @reference Old discussion but still hits on salient points http://www.cs.tut.fi/~jkorpela/forms/accesskey.html */
+*[accesskey]{
+    border: 5px solid red;
+}
+
+
+/* server-side image map. Yes these are sometimes still seen, if rarely */
+img[ismap]{
+    border: 5px solid red;  
+}
