@@ -8,6 +8,6 @@ javascript:( function(d, i, l) {
 		l.id = i;
 		l.rel = 'stylesheet';
 		l.type = 'text/css';
-		l.href = '//karlgroves.github.io/diagnostic.css/diagnostic.css';
+		l.href = '//rawgithub.com/karlgroves/diagnostic.css/master/diagnostic.css';
 		d.getElementsByTagName('head')[0].appendChild(l);
 	}(document, 'diagnosticCSS'))
