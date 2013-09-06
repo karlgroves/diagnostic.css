@@ -8,8 +8,7 @@ a:not([href]):after, a[href*=javascript\:]:after, a[onclick]:after, fieldset > :
 input[type="image"][alt=""]:after, input[type="image"]:not([alt]):after, label:not([for]):after, [dir]:not([dir="rtl"]):not([dir="ltr"]):after, 
 meta[http-equiv=refresh]:after, html:not([lang]):after, *[accesskey]:after, th:empty:after, table > tr:only-child:after, table > tbody > tr:only-child:after,  
 table[align]:after, table[bgcolor]:after, table[border]:after, table[cellpadding]:after,table[cellspacing]:after,table[width]:after, td[width]:after,
-td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after, dl > *:not(dt):not(dd):after, dt + *:not(dd):after,
-*:empty:not(script):not(input):not(br):not(img):not(link):not(hr):not(embed):not(area):not(command):not(col):not(param):not(source):not(track):not(wbr):not(base):not(keygen):after
+td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after, dl > *:not(dt):not(dd):after, dt + *:not(dd):after
 {
    display: inline-block !important;
    background: #dc143c !important;
@@ -21,12 +20,6 @@ td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after,
    font-weight: normal !important;
    font-style: normal !important;
 }
-
-/* Empty content */
-*:empty:not(script):not(input):not(br):not(img):not(link):not(hr):not(embed):not(area):not(command):not(col):not(param):not(source):not(track):not(wbr):not(base):not(keygen):after {
-    content: 'ERROR: Avoid empty elements' !important;
-}
-
 
 /* Deprecated Elements - cannot be overridden by user styles */
 applet, basefont, center, dir, font, isindex, menu, s, strike, u {

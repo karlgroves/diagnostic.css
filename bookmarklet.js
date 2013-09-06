@@ -10,4 +10,4 @@ javascript:( function(d, i, l) {
 		l.type = 'text/css';
 		l.href = '//rawgithub.com/karlgroves/diagnostic.css/master/diagnostic.css';
 		d.getElementsByTagName('head')[0].appendChild(l);
-	}(document, 'diagnosticCSS'))
+	}(document, 'diagnosticCSS'));
