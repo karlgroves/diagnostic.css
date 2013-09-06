@@ -22,17 +22,20 @@ td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after,
 }
 
 /* Deprecated Elements - cannot be overridden by user styles */
-applet, basefont, center, dir, font, isindex, menu, s, strike, u {
+applet:after, basefont:after, center:after, dir:after, font:after, isindex:after, menu:after, s:after, strike:after, u:after {
     content: 'ERROR: Deprecated elements found. They cannot be overridden by user styles' !important;
 }
 
 /* Deprecated Attributes - cannot be overridden by user styles */
-*[background], *[bgcolor], *[clear], *[color], *[compact], *[noshade], *[nowrap], *[size], *[start], *[bottommargin], *[leftmargin], *[rightmargin], *[topmargin], *[marginheight], *[marginwidth], *[alink], *[link], *[text], *[vlink], *[align], *[valign], *[hspace], *[vspace], *[height], *[width], ul[type], ol[type], li[type] {
+*[background]:after, *[bgcolor]:after, *[clear]:after, *[color]:after, *[compact]:after, *[noshade]:after, *[nowrap]:after, *[size]:after, 
+*[start]:after, *[bottommargin]:after, *[leftmargin]:after, *[rightmargin]:after, *[topmargin]:after, *[marginheight]:after, *[marginwidth]:after, 
+*[alink]:after, *[link]:after, *[text]:after, *[vlink]:after, *[align]:after, *[valign]:after, *[hspace]:after, *[vspace]:after, *[height]:after, 
+*[width]:after, ul[type]:after, ol[type]:after, li[type]:after {
     content: 'ERROR: Deprecated attributes found. They cannot be overridden by user styles' !important;
 }
 
 /* Inline frames without title attribute */
-iframe:not([title]){
+iframe:not([title]):after{
     content: 'ERROR: iframe has no title. ' !important;
 }
 
@@ -42,24 +45,24 @@ iframe:not([title]){
  */
 
 /* server-side image map. Yes these are sometimes still seen, if rarely */
-img[ismap]{
+img[ismap]:after{
     content: 'ERROR: Replace server-side image map' !important;
 }
 
 /* Images without alt attribute */
-img:not([alt]) {
+img:not([alt]):after {
     content: 'ERROR: All images must have alt attributes' !important;
 }
 
 /* something that has a role of image but no alternative */
-div[role="img"]:not([aria-label]){
+div[role="img"]:not([aria-label]):after{
     content: 'ERROR: Item has image role without an alternative' !important;
 }
 
 /* images without a source */
-img:not([src]),
-img[src=""],
-img[src="#"]{
+img:not([src]):after,
+img[src=""]:after,
+img[src="#"]:after{
     content: 'ERROR: image has no source' !important;
 }
 
@@ -68,7 +71,7 @@ img[src="#"]{
  */
 
 /* Bad links, possibly relying on javascript to do something */
-a[href=""], a[href="#"], a:not([href]), a[href*=javascript\:], a[onclick]{
+a[href=""]:after, a[href="#"]:after, a:not([href]):after, a[href*=javascript\:]:after, a[onclick]:after{
     content: 'ERROR: links must have a valid hypertext reference' !important;
 }
 
@@ -81,8 +84,8 @@ a[href=""], a[href="#"], a:not([href]), a[href*=javascript\:], a[onclick]{
 /*
 	Legends
 */
-fieldset > :not(legend):first-child,	/* no other element than a legend can be first child of a fieldset element */
-fieldset > legend:not(:first-child) {	/* and a legend can't be anything else than first child of a fieldset element */
+fieldset > :not(legend):first-child:after,	/* no other element than a legend can be first child of a fieldset element */
+fieldset > legend:not(:first-child):after {	/* and a legend can't be anything else than first child of a fieldset element */
     content: 'ERROR: fieldsets must have legends' !important;
 }
 
@@ -94,14 +97,14 @@ fieldset > legend:not(:first-child) {	/* and a legend can't be anything else tha
 	@reference Technique for WCAG 2.0 H36: Using alt attributes on images used as submit buttons - http://www.w3.org/TR/WCAG-TECHS/H36.html
 	@reference Technique for WCAG 2.0 F65: Failure (...) due to omitting the alt attribute on (...) input elements of type "image" - http://www.w3.org/TR/WCAG-TECHS/F65.html
 */
-input[type="image"][alt=""],
-input[type="image"]:not([alt]) {
+input[type="image"][alt=""]:after,
+input[type="image"]:not([alt]):after {
     content: 'ERROR: Image input requires alt attribute' !important;
 }
 
 
 /* Missing 'for' attribute on a label */
-label:not([for]){
+label:not([for]):after{
     content: 'ERROR: label not explicitly matched with field' !important;
 }
 
@@ -110,7 +113,7 @@ label:not([for]){
 	dir attribute
 */
 /* If used, dir attribute only accepts 2 possible values */
-[dir]:not([dir="rtl"]):not([dir="ltr"]) {
+[dir]:not([dir="rtl"]):not([dir="ltr"]):after {
     content: 'ERROR: dir attribute has invalid value' !important;	
 }
 
@@ -125,7 +128,7 @@ title:empty:after {
 	@source CSS selector from Opquast Checklist Accessibility First step https://checklists.opquast.com/en/accessibilityfirststep/
 	@reference Technique for WCAG 2.0 F40: Failure (...) due to using meta redirect with a time limit - http://www.w3.org/TR/WCAG-TECHS/F40.html
 */
-meta[http-equiv=refresh] {
+meta[http-equiv=refresh]:after {
     content: 'ERROR: Replace meta refresh' !important;
 }
 
@@ -135,7 +138,7 @@ meta[http-equiv=refresh] {
 	@reference Technique for WCAG 2.0 H57: Using language attributes on the html element  - http://www.w3.org/TR/WCAG-TECHS/F40.html
 */
 
-html:not([lang]){
+html:not([lang]):after{
 	content: 'ERROR: HTML element requires lang attribute' !important;
 }
 
@@ -143,7 +146,7 @@ html:not([lang]){
 
 /* Accesskey is a bad idea. 
  * @reference Old discussion but still hits on salient points http://www.cs.tut.fi/~jkorpela/forms/accesskey.html */
-*[accesskey]{
+*[accesskey]:after{
     content: 'ERROR: Accesskey is a bad idea' !important;
 }
 
@@ -153,25 +156,26 @@ html:not([lang]){
  */
 
 /* Empty Header Cells */
-th:empty {
+th:empty:after {
     content: 'ERROR: replace empty TH element with TD' !important;
 }
 
 /* only one TR in the table. Is that a layout table? */ 
-table > tr:only-child, 
-table > tbody > tr:only-child {
+table > tr:only-child:after, 
+table > tbody > tr:only-child:after {
     content: 'ERROR:  only one TR in this table. Is this a layout table?' !important;
 }
 
 /* Deprecated attributes on table */
-table[align],
-table[bgcolor],
-table[border],
-table[cellpadding],
-table[cellspacing],
-table[width],
-td[width],
-td[valign] {
+table[align]:after,
+table[bgcolor]:after,
+table[border]:after,
+table[cellpadding]:after,
+table[cellspacing]:after,
+table[width]:after,
+td[width]:after,
+td[valign]:after
+{
     content: 'ERROR: Deprecated markup in table' !important;
 }
 
