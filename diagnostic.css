@@ -1,22 +1,46 @@
-
-/* Empty Attributes */
-*[title=""], *[class=""], *[id=""], table[summary=""]  {
-    border: 5px solid yellow !important;
+applet:after, basefont:after, center:after, dir:after, font:after, isindex:after, menu:after, s:after, strike:after, u:after, 
+*[background]:after, *[bgcolor]:after, *[clear]:after, *[color]:after, *[compact]:after, *[noshade]:after, *[nowrap]:after, *[size]:after, 
+*[start]:after, *[bottommargin]:after, *[leftmargin]:after, *[rightmargin]:after, *[topmargin]:after, *[marginheight]:after, *[marginwidth]:after, 
+*[alink]:after, *[link]:after, *[text]:after, *[vlink]:after, *[align]:after, *[valign]:after, *[hspace]:after, *[vspace]:after, *[height]:after, 
+*[width]:after, ul[type]:after, ol[type]:after, li[type]:after, iframe:not([title]):after, img[ismap]:after, img:not([alt]):after, 
+div[role="img"]:not([aria-label]):after, img:not([src]):after,img[src=""]:after, img[src="#"]:after, a[href=""]:after, a[href="#"]:after, 
+a:not([href]):after, a[href*=javascript\:]:after, a[onclick]:after, fieldset > :not(legend):first-child:after, fieldset > legend:not(:first-child):after, 
+input[type="image"][alt=""]:after, input[type="image"]:not([alt]):after, label:not([for]):after, [dir]:not([dir="rtl"]):not([dir="ltr"]):after, 
+meta[http-equiv=refresh]:after, html:not([lang]):after, *[accesskey]:after, th:empty:after, table > tr:only-child:after, table > tbody > tr:only-child:after,  
+table[align]:after, table[bgcolor]:after, table[border]:after, table[cellpadding]:after,table[cellspacing]:after,table[width]:after, td[width]:after,
+td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after, dl > *:not(dt):not(dd):after, dt + *:not(dd):after,
+*:empty:not(script):not(input):not(br):not(img):not(link):not(hr):not(embed):not(area):not(command):not(col):not(param):not(source):not(track):not(wbr):not(base):not(keygen):after
+{
+   display: inline-block !important;
+   background: #dc143c !important;
+   padding: 0.25em !important;
+   font-family: 'comic sans ms', cursive !important;
+   color: #fff !important;
+   font-size: 14px !important;
+   text-shadow: none !important;
+   font-weight: normal !important;
+   font-style: normal !important;
 }
+
+/* Empty content */
+*:empty:not(script):not(input):not(br):not(img):not(link):not(hr):not(embed):not(area):not(command):not(col):not(param):not(source):not(track):not(wbr):not(base):not(keygen):after {
+    content: 'ERROR: Avoid empty elements' !important;
+}
+
 
 /* Deprecated Elements - cannot be overridden by user styles */
 applet, basefont, center, dir, font, isindex, menu, s, strike, u {
-    border: 5px dotted red !important;
+    content: 'ERROR: Deprecated elements found. They cannot be overridden by user styles' !important;
 }
 
 /* Deprecated Attributes - cannot be overridden by user styles */
 *[background], *[bgcolor], *[clear], *[color], *[compact], *[noshade], *[nowrap], *[size], *[start], *[bottommargin], *[leftmargin], *[rightmargin], *[topmargin], *[marginheight], *[marginwidth], *[alink], *[link], *[text], *[vlink], *[align], *[valign], *[hspace], *[vspace], *[height], *[width], ul[type], ol[type], li[type] {
-    border: 5px solid red !important;
+    content: 'ERROR: Deprecated attributes found. They cannot be overridden by user styles' !important;
 }
 
 /* Inline frames without title attribute */
 iframe:not([title]){
-    border: 5px solid red !important;
+    content: 'ERROR: iframe has no title. ' !important;
 }
 
 
@@ -26,24 +50,24 @@ iframe:not([title]){
 
 /* server-side image map. Yes these are sometimes still seen, if rarely */
 img[ismap]{
-    border: 5px solid red;  
+    content: 'ERROR: Replace server-side image map' !important;
 }
 
 /* Images without alt attribute */
 img:not([alt]) {
-    border: 5px solid red;
+    content: 'ERROR: All images must have alt attributes' !important;
 }
 
 /* something that has a role of image but no alternative */
 div[role="img"]:not([aria-label]){
-   border: 5px solid red; 
+    content: 'ERROR: Item has image role without an alternative' !important;
 }
 
 /* images without a source */
 img:not([src]),
 img[src=""],
 img[src="#"]{
-    border: 5px solid red !important;
+    content: 'ERROR: image has no source' !important;
 }
 
 /**
@@ -52,9 +76,8 @@ img[src="#"]{
 
 /* Bad links, possibly relying on javascript to do something */
 a[href=""], a[href="#"], a:not([href]), a[href*=javascript\:], a[onclick]{
-    border: 5px solid red !important;
+    content: 'ERROR: links must have a valid hypertext reference' !important;
 }
-
 
 
 
@@ -67,12 +90,9 @@ a[href=""], a[href="#"], a:not([href]), a[href*=javascript\:], a[onclick]{
 */
 fieldset > :not(legend):first-child,	/* no other element than a legend can be first child of a fieldset element */
 fieldset > legend:not(:first-child) {	/* and a legend can't be anything else than first child of a fieldset element */
-	outline: 5px dashed red !important;
+    content: 'ERROR: fieldsets must have legends' !important;
 }
-/* so this is the only correct case: */
-fieldset > legend:first-child {
-	outline: 3px solid green !important;
-}
+
 
 
 /*
@@ -83,18 +103,14 @@ fieldset > legend:first-child {
 */
 input[type="image"][alt=""],
 input[type="image"]:not([alt]) {
-	display: block;
-	background-color: red !important;
-	width: 200px !important;
-	height: 3em !important;
+    content: 'ERROR: Image input requires alt attribute' !important;
 }
 
 
 /* Missing 'for' attribute on a label */
 label:not([for]){
-    border: 5px solid red !important;
+    content: 'ERROR: label not explicitly matched with field' !important;
 }
-
 
 
 /*
@@ -102,55 +118,12 @@ label:not([for]){
 */
 /* If used, dir attribute only accepts 2 possible values */
 [dir]:not([dir="rtl"]):not([dir="ltr"]) {
-	background-color: hotpink !important;
-}
-[dir="rtl"]:before,
-[dir="ltr"]:before {
-	content: "dir: " attr(dir);
-	display: block;
-	color: darkgreen !important;
-	background-color: lightyellow !important;
+    content: 'ERROR: dir attribute has invalid value' !important;	
 }
 
-
-/*
-	title element: not empty, unique and in head
-*/
-head, title {
-	display: block;
-}
-title:before {
-	content: 'TITLE';
-	margin: 0 0.4em;
-	padding: 0 0.4em;
-	color: black;
-	background-color: #D0D0D0;
-	border-radius: 3px;
-}
-head > title {
-	margin: 0;
-	padding: 0.2em 0;
-	border-bottom: 1px solid #CCC;
-	color: #444;
-	background-color: white;
-}
 /* empty? */
 title:empty:after {
-	content: "ERROR: title element is empty and it shouldn't";
-	color: #C22;
-	background-color: white;
-}
-title:empty:before,
-title ~ title:before { /* not unique? */
-	color: white;
-	background-color: #C22;
-}
-title ~ title:after {
-	content: ' (ERROR: why more than one title element?)';
-}
-title ~ title {
-	color: #C22;
-	background-color: white;
+	content: 'ERROR: title element is empty' !important;
 }
 
 
@@ -159,15 +132,8 @@ title ~ title {
 	@source CSS selector from Opquast Checklist Accessibility First step https://checklists.opquast.com/en/accessibilityfirststep/
 	@reference Technique for WCAG 2.0 F40: Failure (...) due to using meta redirect with a time limit - http://www.w3.org/TR/WCAG-TECHS/F40.html
 */
-meta[http-equiv=refresh]:before {
-	content: 'meta refresh detected';
-}
 meta[http-equiv=refresh] {
-	display: block;
-	padding: 0.4em;
-	font-weight: bold;
-	color: white;
-	background-color: darkred;
+    content: 'ERROR: Replace meta refresh' !important;
 }
 
 
@@ -175,24 +141,9 @@ meta[http-equiv=refresh] {
 	Lang attribute on html element
 	@reference Technique for WCAG 2.0 H57: Using language attributes on the html element  - http://www.w3.org/TR/WCAG-TECHS/F40.html
 */
-html[lang] {
-	display: block;
-	margin-top: 0.4em;
-}
-html:not([lang]):before {
-	content: 'no lang attribute detected';
-	margin: 0.4em;
-	padding: 0 0.4em;
-	color: white;
-	background-color: darkred;
-	border-radius: 3px;
-}
 
-html[lang]:before {
-	content: 'Default language of the page: ' attr(lang);
-	margin: 0.4em;
-	color: #444;
-	background-color: white;
+html:not([lang]){
+	content: 'ERROR: HTML element requires lang attribute' !important;
 }
 
 
@@ -200,7 +151,7 @@ html[lang]:before {
 /* Accesskey is a bad idea. 
  * @reference Old discussion but still hits on salient points http://www.cs.tut.fi/~jkorpela/forms/accesskey.html */
 *[accesskey]{
-    border: 5px solid red;
+    content: 'ERROR: Accesskey is a bad idea' !important;
 }
 
 
@@ -210,14 +161,13 @@ html[lang]:before {
 
 /* Empty Header Cells */
 th:empty {
-    padding: 20px;
-    border: 5px solid yellow !important;
+    content: 'ERROR: replace empty TH element with TD' !important;
 }
 
 /* only one TR in the table. Is that a layout table? */ 
 table > tr:only-child, 
 table > tbody > tr:only-child {
-  border: 5px solid red;
+    content: 'ERROR:  only one TR in this table. Is this a layout table?' !important;
 }
 
 /* Deprecated attributes on table */
@@ -229,5 +179,24 @@ table[cellspacing],
 table[width],
 td[width],
 td[valign] {
-    border: 5px solid red;
+    content: 'ERROR: Deprecated markup in table' !important;
+}
+
+
+/**
+ *     List-related issues
+ */
+
+
+ol > *:not(li):after,
+ul > *:not(li):after {
+    content: 'ERROR: List markup invalid' !important;
+}
+
+dl > *:not(dt):not(dd):after {
+    content: 'ERROR: Definition list markup invalid' !important;
+}
+
+dt + *:not(dd):after {
+    content: 'ERROR: Definition must follow term' !important;
 }
