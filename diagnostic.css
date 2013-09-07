@@ -8,7 +8,9 @@ a:not([href]):after, a[href*=javascript\:]:after, a[onclick]:after, fieldset > :
 input[type="image"][alt=""]:after, input[type="image"]:not([alt]):after, label:not([for]):after, [dir]:not([dir="rtl"]):not([dir="ltr"]):after, 
 meta[http-equiv=refresh]:after, html:not([lang]):after, *[accesskey]:after, th:empty:after, table > tr:only-child:after, table > tbody > tr:only-child:after,  
 table[align]:after, table[bgcolor]:after, table[border]:after, table[cellpadding]:after,table[cellspacing]:after,table[width]:after, td[width]:after,
-td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after, dl > *:not(dt):not(dd):after, dt + *:not(dd):after
+td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after, dl > *:not(dt):not(dd):after, dt + *:not(dd):after, th > table:after, 
+td > table:after, body > table:first-child:after, p b:only-child:after, p strong:only-child:after, ol[type]:after, ul[type]:after, area:not[alt]:after,
+table table:after
 {
    display: inline-block !important;
    background: #dc143c !important;
@@ -53,6 +55,11 @@ img[ismap]:after{
 img:not([alt]):after {
     content: 'ERROR: All images must have alt attributes' !important;
 }
+
+area:not[alt]:after{
+    content: 'ERROR: Provide alt attribute for all areas of an image map' !important;
+}
+
 
 /* something that has a role of image but no alternative */
 div[role="img"]:not([aria-label]):after{
@@ -123,6 +130,17 @@ title:empty:after {
 }
 
 
+/* Implicit headings */
+p b:only-child:after, p strong:only-child:after{
+    content: 'ERROR: Should this bold text be a heading?' !important;
+}
+
+
+/* bullet type should be declared in CSS */
+ol[type]:after, ul[type]:after{
+    content: 'ERROR: Bullet type should be declared in CSS' !important;
+}
+
 /*
 	Meta refresh?
 	@source CSS selector from Opquast Checklist Accessibility First step https://checklists.opquast.com/en/accessibilityfirststep/
@@ -159,6 +177,13 @@ html:not([lang]):after{
 th:empty:after {
     content: 'ERROR: replace empty TH element with TD' !important;
 }
+
+/* test for nested table */
+th > table:after, td > table:after, body > table:first-child:after, table table:after{
+    content: 'ERROR: nested table found. Is this a layout table?' !important;
+}
+
+
 
 /* only one TR in the table. Is that a layout table? */ 
 table > tr:only-child:after, 
