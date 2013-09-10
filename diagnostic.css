@@ -5,7 +5,7 @@ applet:after, basefont:after, center:after, dir:after, font:after, isindex:after
 *[width]:after, ul[type]:after, ol[type]:after, li[type]:after, iframe:not([title]):after, img[ismap]:after, img:not([alt]):after, 
 div[role="img"]:not([aria-label]):after, img:not([src]):after,img[src=""]:after, img[src="#"]:after, a[href=""]:after, a[href="#"]:after, 
 a:not([href]):after, a[href*=javascript\:]:after, a[onclick]:after, fieldset > :not(legend):first-child:after, fieldset > legend:not(:first-child):after, 
-input[type="image"][alt=""]:after, input[type="image"]:not([alt]):after, label:not([for]):after, [dir]:not([dir="rtl"]):not([dir="ltr"]):after, 
+input[type="image"][alt=""]:after, input[type="image"]:not([alt]):after, [dir]:not([dir="rtl"]):not([dir="ltr"]):after, 
 meta[http-equiv=refresh]:after, html:not([lang]):after, *[accesskey]:after, th:empty:after, table > tr:only-child:after, table > tbody > tr:only-child:after,  
 table[align]:after, table[bgcolor]:after, table[border]:after, table[cellpadding]:after,table[cellspacing]:after,table[width]:after, td[width]:after,
 td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after, dl > *:not(dt):not(dd):after, dt + *:not(dd):after, th > table:after, 
@@ -62,7 +62,7 @@ area:not[alt]:after{
 
 
 /* something that has a role of image but no alternative */
-div[role="img"]:not([aria-label]):after{
+*[role="img"]:not([aria-label]):after{
     content: 'ERROR: Item has image role without an alternative' !important;
 }
 
@@ -107,12 +107,6 @@ fieldset > legend:not(:first-child):after {	/* and a legend can't be anything el
 input[type="image"][alt=""]:after,
 input[type="image"]:not([alt]):after {
     content: 'ERROR: Image input requires alt attribute' !important;
-}
-
-
-/* Missing 'for' attribute on a label */
-label:not([for]):after{
-    content: 'ERROR: label not explicitly matched with field' !important;
 }
 
 
