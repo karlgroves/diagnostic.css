@@ -78,7 +78,7 @@ img[src="#"]:after{
  */
 
 /* Bad links, possibly relying on javascript to do something */
-a[href=""]:after, a[href="#"]:after, a:not([href]):after, a[href*=javascript\:]:after, a[onclick]:after{
+a[href=""]:after, a[href="#"]:after, a:not([href]):after, a[href*=javascript\:]:after, a[href=""][onclick]:after{
     content: 'ERROR: links must have a valid hypertext reference' !important;
 }
 
