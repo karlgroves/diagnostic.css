@@ -5,7 +5,7 @@ Diagnostic.css is a stylesheet which allows the user to test for common errors i
 Inspired by Eric Meyer's diagnostic CSS file, this one is intended to flesh out accessibility related issues on a page.  
 
 ## Philosophy ##
-The goal of this stylesheet is to provide very quick, very accurate feedback. As a consequence, only items that are too conservative and create "false positives" are likely to be eliminated from the sheet and won't be included in any merges.
+The goal of this stylesheet is to provide very quick, very accurate feedback. As a consequence, items that are too conservative and create "false positives" are likely to be eliminated from the sheet and won't be included in any merges.
 
 ## How to use ##
 If you're working with a site you own, add this (temporarily, of course) to your site to display the errors.
