@@ -9,7 +9,7 @@ input[type="image"][alt=""]:after, input[type="image"]:not([alt]):after, [dir]:n
 meta[http-equiv=refresh]:after, html:not([lang]):after, *[accesskey]:after, th:empty:after, table > tr:only-child:after, table > tbody > tr:only-child:after,  
 table[align]:after, table[bgcolor]:after, table[border]:after, table[cellpadding]:after,table[cellspacing]:after,table[width]:after, td[width]:after,
 td[valign]:after, title:empty:after, ol > *:not(li):after, ul > *:not(li):after, dl > *:not(dt):not(dd):after, dt + *:not(dd):after, th > table:after, 
-td > table:after, body > table:first-child:after, p b:only-child:after, p strong:only-child:after, ol[type]:after, ul[type]:after, area:not[alt]:after,
+td > table:after, body > table:first-child:after, p b:only-child:after, p strong:only-child:after, ol[type]:after, ul[type]:after, area:not([alt]):after,
 table table:after
 {
    display: inline-block !important;
@@ -56,7 +56,7 @@ img:not([alt]):after {
     content: 'ERROR: All images must have alt attributes' !important;
 }
 
-area:not[alt]:after{
+area:not([alt]):after{
     content: 'ERROR: Provide alt attribute for all areas of an image map' !important;
 }
 
