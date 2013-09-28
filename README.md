@@ -18,6 +18,8 @@ If you're checking work you don't have access to, use this as a user style.
 This is an open repo. Contribute to it, add to the documentation, submit an issue, etc.
 
 ## Change Log ##
+28-September 2013: Fixed a bad negation selector for area elements without alt attributes.  
+
 06-September 2013: Totally revamped the stylesheet. Added new selectors. Added generated content to show error information.
 
 13-September 2013: Merged request from AWK to change overly conservative rule.
