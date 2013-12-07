@@ -28,12 +28,10 @@ Note, as it is set-up now, this userscript is "on" for all websites.  To turn th
 This is an open repo. Contribute to it, add to the documentation, submit an issue, etc.
 
 ## Change Log ##
-<<<<<<< HEAD
 07-December 2013: Added user script.
-=======
+
 28-September 2013: Fixed a bad negation selector for area elements without alt attributes.  
 
->>>>>>> 51f4454f9f541fc780dc5c2adf54d068366da677
 06-September 2013: Totally revamped the stylesheet. Added new selectors. Added generated content to show error information.
 
 13-September 2013: Merged request from AWK to change overly conservative rule.
