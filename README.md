@@ -10,14 +10,25 @@ The goal of this stylesheet is to provide very quick, very accurate feedback. As
 ## How to use ##
 If you're working with a site you own, add this (temporarily, of course) to your site to display the errors.
 
+If you're checking work you don't have access to, use this as a user style.
+
+### Bookmarklet ###
 Alternately, use the bookmarklet.js found in this repo. Create a bookmarklet in your browser and then click it when you're on a page you want to test.
 
-If you're checking work you don't have access to, use this as a user style. 
+### User Script ###
+NEW, as of 07-December 2013, there's a new file, diagnostic-css.user.js in this repo which can be used as a user script. This enables you to get the diagnostic CSS feedback without having to constantly activate the bookmarklet above. This is particularly useful for use case testing or user acceptance testing because you can simply activate this script and browse the screens you want to test.
+
+If you have Greasemonkey installed on Firefox, open the diagnostic-css.user.js file with Firefox. This will install the script as a userscript.
+Download Greasemonkey at https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
+
+Note, as it is set-up now, this userscript is "on" for all websites.  To turn this on for only certain sites, such as those you own, modify the @include directive in the script file. Alternately, you can enable/ disable the script within greasemonkey itself.
+
 
 ## Make it better ##
 This is an open repo. Contribute to it, add to the documentation, submit an issue, etc.
 
 ## Change Log ##
+07-December 2013: Added user script.
 06-September 2013: Totally revamped the stylesheet. Added new selectors. Added generated content to show error information.
 
 13-September 2013: Merged request from AWK to change overly conservative rule.
