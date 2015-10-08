@@ -28,12 +28,12 @@ applet:after, basefont:after, center:after, dir:after, font:after, isindex:after
     content: 'ERROR: Deprecated elements found. They cannot be overridden by user styles' !important;
 }
 
-/* Deprecated Attributes - cannot be overridden by user styles */
+/* Deprecated Attributes - should not be used anymore */
 *[background]:after, *[bgcolor]:after, *[clear]:after, *[color]:after, *[compact]:after, *[noshade]:after, *[nowrap]:after, *[size]:after, 
 *[start]:after, *[bottommargin]:after, *[leftmargin]:after, *[rightmargin]:after, *[topmargin]:after, *[marginheight]:after, *[marginwidth]:after, 
 *[alink]:after, *[link]:after, *[text]:after, *[vlink]:after, *[align]:after, *[valign]:after, *[hspace]:after, *[vspace]:after, *[height]:after, 
 *[width]:after, ul[type]:after, ol[type]:after, li[type]:after {
-    content: 'ERROR: Deprecated attributes found. They cannot be overridden by user styles' !important;
+    content: 'ERROR: Deprecated attributes found. They should not be used anymore' !important;
 }
 
 /* Inline frames without title attribute */
